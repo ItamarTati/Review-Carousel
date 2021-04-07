@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<style>
+		body{ 
+		text-align: center 
+		}
+	</style>
+
+<h1>Review Carousel</h1>
+<h2>Here are some products to review</h2>
+<div id = 'containment'>
+</div>
+<button  type="button" onclick="back()">Back</button>
+<button  type="button" onclick="next()">Next</button>
+
+
+
+
+<script>
+let products = [{name: 'Comb', price: 2.9}, {name: 'Shampoo', price: 3}, {name: 'Hair Spray', price: 4}, {name: 'Doorag', price: 1}]
+let index = 0
+
+function next(){
+	if(index >= products.length - 1){
+	index = 0 
+	document.getElementById("containment").innerHTML = `The ${products[index].name} costs £${products[index].price.toFixed(2)}`
+} else{ 
+	index += 1 
+	document.getElementById("containment").innerHTML = `The ${products[index].name} costs £${products[index].price.toFixed(2)}`
+}
+}
+
+function back(){
+	if(index <= 0){
+	index = products.length - 1 
+	document.getElementById("containment").innerHTML = `The ${products[index].name} costs £${products[index].price.toFixed(2)}`
+} else{ 
+	index -= 1 
+	document.getElementById("containment").innerHTML = `The ${products[index].name} costs £${products[index].price.toFixed(2)}`
+}
+
+}
+
+document.getElementById("containment").innerHTML = `The ${products[index].name} costs £${products[index].price.toFixed(2)}`
+
+</script>
+
+</body>
+</html>
